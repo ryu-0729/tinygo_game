@@ -72,6 +72,8 @@ func main() {
 	tinyfont.WriteLine(&display, &gophers.Regular32pt, 5, 50, "ABCEF", white)
 	display.Display()
 
+	time.Sleep(2 * time.Second)
+
 	const RED uint32 = 0x00FF00FF
 	const WHITE uint32 = 0xFFFFFFFF
 
