@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"image/color"
 	"machine"
 	"math/rand"
@@ -164,7 +163,6 @@ func main() {
 		time.Sleep(1 * time.Millisecond)
 
 		if rowPins[0].Get() {
-			fmt.Printf("sw1 pressed\n")
 			var colorCode0 uint32 = WHITE
 			if colors[0] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -175,7 +173,6 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[1].Get() {
-			fmt.Printf("sw5 pressed\n")
 			var colorCode1 uint32 = WHITE
 			if colors[1] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -186,7 +183,6 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[2].Get() {
-			fmt.Printf("sw9 pressed\n")
 			var colorCode2 uint32 = WHITE
 			if colors[2] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -205,7 +201,6 @@ func main() {
 		time.Sleep(1 * time.Millisecond)
 
 		if rowPins[0].Get() {
-			fmt.Printf("sw2 pressed\n")
 			var colorCode3 uint32 = WHITE
 			if colors[3] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -216,7 +211,6 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[1].Get() {
-			fmt.Printf("sw6 pressed\n")
 			var colorCode4 uint32 = WHITE
 			if colors[4] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -227,7 +221,6 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[2].Get() {
-			fmt.Printf("sw10 pressed\n")
 			var colorCode5 uint32 = WHITE
 			if colors[5] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -246,7 +239,6 @@ func main() {
 		time.Sleep(1 * time.Millisecond)
 
 		if rowPins[0].Get() {
-			fmt.Printf("sw3 pressed\n")
 			var colorCode6 uint32 = WHITE
 			if colors[6] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -257,7 +249,6 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[1].Get() {
-			fmt.Printf("sw7 pressed\n")
 			var colorCode7 uint32 = WHITE
 			if colors[7] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -268,7 +259,6 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[2].Get() {
-			fmt.Printf("sw11 pressed\n")
 			var colorCode8 uint32 = WHITE
 			if colors[8] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -287,7 +277,6 @@ func main() {
 		time.Sleep(1 * time.Millisecond)
 
 		if rowPins[0].Get() {
-			fmt.Printf("sw4 pressed\n")
 			var colorCode9 uint32 = WHITE
 			if colors[9] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -298,7 +287,6 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[1].Get() {
-			fmt.Printf("sw8 pressed\n")
 			var colorCode10 uint32 = WHITE
 			if colors[10] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
@@ -309,7 +297,6 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[2].Get() {
-			fmt.Printf("sw12 pressed\n")
 			var colorCode11 uint32 = WHITE
 			if colors[11] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
