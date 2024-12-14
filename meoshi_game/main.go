@@ -87,6 +87,7 @@ func main() {
 	display.ClearDisplay()
 	tinyfont.WriteLine(&display, &gophers.Regular32pt, 5, 50, "ABCEF", displayColor)
 	display.Display()
+	time.Sleep(2 * time.Second)
 
 	gameLevel := 1
 	gameSpeed := 100 * time.Millisecond
