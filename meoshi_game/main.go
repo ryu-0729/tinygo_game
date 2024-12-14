@@ -1,11 +1,18 @@
 package main
 
 import (
+	"image/color"
 	"machine"
+	"strconv"
 	"time"
 
 	pio "github.com/tinygo-org/pio/rp2-pio"
 	"github.com/tinygo-org/pio/rp2-pio/piolib"
+	"tinygo.org/x/drivers"
+	"tinygo.org/x/drivers/ssd1306"
+	"tinygo.org/x/tinyfont"
+	"tinygo.org/x/tinyfont/freemono"
+	"tinygo.org/x/tinyfont/gophers"
 )
 
 type WS2812B struct {
@@ -69,103 +76,140 @@ func main() {
 
 	keyMap := []int{0, 3, 6, 9, 10, 11, 8, 5, 2, 1}
 
+	displayColor := color.RGBA{R: 0xFF, G: 0xFF, B: 0xFF, A: 0xFF}
+	display := ssd1306.NewI2C(machine.I2C0)
+	display.Configure(ssd1306.Config{
+		Address:  0x3C,
+		Width:    128,
+		Height:   64,
+		Rotation: drivers.Rotation180,
+	})
+	display.ClearDisplay()
+	tinyfont.WriteLine(&display, &gophers.Regular32pt, 5, 50, "ABCEF", displayColor)
+	display.Display()
+
+	gameLevel := 1
 	for {
-		for _, keyValue := range keyMap {
-			// COL1
-			colPins[0].High()
-			colPins[1].Low()
-			colPins[2].Low()
-			colPins[3].Low()
-			time.Sleep((1 * time.Millisecond))
-			if rowPins[0].Get() {
-				if initColor[0] == RED {
-					break
-				}
-			}
-			if rowPins[1].Get() {
-				if initColor[1] == RED {
-					break
-				}
-			}
-			if rowPins[2].Get() {
-				if initColor[2] == RED {
-					break
-				}
-			}
+		display.ClearDisplay()
+		tinyfont.WriteLine(&display, &freemono.Bold12pt7b, 5, 50, "Level: "+strconv.Itoa(gameLevel), displayColor)
+		display.Display()
+		time.Sleep(2 * time.Second)
 
-			// COL2
-			colPins[0].Low()
-			colPins[1].High()
-			colPins[2].Low()
-			colPins[3].Low()
-			time.Sleep((1 * time.Millisecond))
-			if rowPins[0].Get() {
-				if initColor[3] == RED {
-					break
+		for {
+			isLevelUp := false
+			for _, keyValue := range keyMap {
+				// COL1
+				colPins[0].High()
+				colPins[1].Low()
+				colPins[2].Low()
+				colPins[3].Low()
+				time.Sleep((1 * time.Millisecond))
+				if rowPins[0].Get() {
+					if initColor[0] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
-			if rowPins[1].Get() {
-				if initColor[4] == RED {
-					break
+				if rowPins[1].Get() {
+					if initColor[1] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
-			if rowPins[2].Get() {
-				if initColor[5] == RED {
-					break
+				if rowPins[2].Get() {
+					if initColor[2] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
 
-			// COL3
-			colPins[0].Low()
-			colPins[1].Low()
-			colPins[2].High()
-			colPins[3].Low()
-			time.Sleep((1 * time.Millisecond))
-			if rowPins[0].Get() {
-				if initColor[6] == RED {
-					break
+				// COL2
+				colPins[0].Low()
+				colPins[1].High()
+				colPins[2].Low()
+				colPins[3].Low()
+				time.Sleep((1 * time.Millisecond))
+				if rowPins[0].Get() {
+					if initColor[3] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
-			if rowPins[1].Get() {
-				if initColor[7] == RED {
-					break
+				if rowPins[1].Get() {
+					if initColor[4] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
-			if rowPins[2].Get() {
-				if initColor[8] == RED {
-					break
+				if rowPins[2].Get() {
+					if initColor[5] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
 
-			// COL4
-			colPins[0].Low()
-			colPins[1].Low()
-			colPins[2].Low()
-			colPins[3].High()
-			time.Sleep((1 * time.Millisecond))
-			if rowPins[0].Get() {
-				if initColor[9] == RED {
-					break
+				// COL3
+				colPins[0].Low()
+				colPins[1].Low()
+				colPins[2].High()
+				colPins[3].Low()
+				time.Sleep((1 * time.Millisecond))
+				if rowPins[0].Get() {
+					if initColor[6] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
-			if rowPins[1].Get() {
-				if initColor[10] == RED {
-					break
+				if rowPins[1].Get() {
+					if initColor[7] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
-			if rowPins[2].Get() {
-				if initColor[11] == RED {
-					break
+				if rowPins[2].Get() {
+					if initColor[8] == RED {
+						isLevelUp = true
+						break
+					}
 				}
-			}
 
-			for _, keyValue2 := range keyMap {
-				initColor[keyValue2] = WHITE
+				// COL4
+				colPins[0].Low()
+				colPins[1].Low()
+				colPins[2].Low()
+				colPins[3].High()
+				time.Sleep((1 * time.Millisecond))
+				if rowPins[0].Get() {
+					if initColor[9] == RED {
+						isLevelUp = true
+						break
+					}
+				}
+				if rowPins[1].Get() {
+					if initColor[10] == RED {
+						isLevelUp = true
+						break
+					}
+				}
+				if rowPins[2].Get() {
+					if initColor[11] == RED {
+						isLevelUp = true
+						break
+					}
+				}
+
+				for _, keyValue2 := range keyMap {
+					initColor[keyValue2] = WHITE
+				}
+				initColor[keyValue] = RED
+				ws.WriteRaw(initColor)
+				// TODO: 速度調整
+				time.Sleep(500 * time.Millisecond)
 			}
-			initColor[keyValue] = RED
-			ws.WriteRaw(initColor)
-			time.Sleep(500 * time.Millisecond)
+			if isLevelUp {
+				break
+			}
 		}
-		// TODO: レベルを上げる or ゲームオーバー処理
+		gameLevel++
 	}
 }
