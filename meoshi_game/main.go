@@ -96,8 +96,8 @@ func main() {
 		display.Display()
 		time.Sleep(2 * time.Second)
 
+	PlayGameLoop:
 		for {
-			isLevelUp := false
 			for _, keyValue := range keyMap {
 				// COL1
 				colPins[0].High()
@@ -107,20 +107,17 @@ func main() {
 				time.Sleep((1 * time.Millisecond))
 				if rowPins[0].Get() {
 					if initColor[0] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 				if rowPins[1].Get() {
 					if initColor[1] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 				if rowPins[2].Get() {
 					if initColor[2] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 
@@ -132,20 +129,17 @@ func main() {
 				time.Sleep((1 * time.Millisecond))
 				if rowPins[0].Get() {
 					if initColor[3] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 				if rowPins[1].Get() {
 					if initColor[4] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 				if rowPins[2].Get() {
 					if initColor[5] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 
@@ -157,20 +151,17 @@ func main() {
 				time.Sleep((1 * time.Millisecond))
 				if rowPins[0].Get() {
 					if initColor[6] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 				if rowPins[1].Get() {
 					if initColor[7] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 				if rowPins[2].Get() {
 					if initColor[8] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 
@@ -182,20 +173,17 @@ func main() {
 				time.Sleep((1 * time.Millisecond))
 				if rowPins[0].Get() {
 					if initColor[9] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 				if rowPins[1].Get() {
 					if initColor[10] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 				if rowPins[2].Get() {
 					if initColor[11] == RED {
-						isLevelUp = true
-						break
+						break PlayGameLoop
 					}
 				}
 
@@ -205,9 +193,6 @@ func main() {
 				initColor[keyValue] = RED
 				ws.WriteRaw(initColor)
 				time.Sleep(gameSpeed)
-			}
-			if isLevelUp {
-				break
 			}
 		}
 		gameLevel++
