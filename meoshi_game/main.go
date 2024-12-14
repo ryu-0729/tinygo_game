@@ -89,6 +89,7 @@ func main() {
 	display.Display()
 
 	gameLevel := 1
+	gameSpeed := 100 * time.Millisecond
 	for {
 		display.ClearDisplay()
 		tinyfont.WriteLine(&display, &freemono.Bold12pt7b, 5, 50, "Level: "+strconv.Itoa(gameLevel), displayColor)
@@ -203,13 +204,19 @@ func main() {
 				}
 				initColor[keyValue] = RED
 				ws.WriteRaw(initColor)
-				// TODO: 速度調整
-				time.Sleep(500 * time.Millisecond)
+				time.Sleep(gameSpeed)
 			}
 			if isLevelUp {
 				break
 			}
 		}
 		gameLevel++
+		if gameLevel == 11 {
+			display.ClearDisplay()
+			tinyfont.WriteLine(&display, &freemono.Bold9pt7b, 5, 45, "GameClear!!", displayColor)
+			display.Display()
+			break
+		}
+		gameSpeed = time.Duration(100-(gameLevel*10)) * time.Millisecond
 	}
 }
