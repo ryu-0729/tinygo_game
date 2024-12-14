@@ -97,6 +97,8 @@ func main() {
 		display.Display()
 		time.Sleep(2 * time.Second)
 
+		isGameOver := false
+
 	PlayGameLoop:
 		for {
 			for _, keyValue := range keyMap {
@@ -109,15 +111,24 @@ func main() {
 				if rowPins[0].Get() {
 					if initColor[0] == RED {
 						break PlayGameLoop
+					} else {
+						isGameOver = true
+						break PlayGameLoop
 					}
 				}
 				if rowPins[1].Get() {
 					if initColor[1] == RED {
 						break PlayGameLoop
+					} else {
+						isGameOver = true
+						break PlayGameLoop
 					}
 				}
 				if rowPins[2].Get() {
 					if initColor[2] == RED {
+						break PlayGameLoop
+					} else {
+						isGameOver = true
 						break PlayGameLoop
 					}
 				}
@@ -131,15 +142,24 @@ func main() {
 				if rowPins[0].Get() {
 					if initColor[3] == RED {
 						break PlayGameLoop
+					} else {
+						isGameOver = true
+						break PlayGameLoop
 					}
 				}
 				if rowPins[1].Get() {
 					if initColor[4] == RED {
 						break PlayGameLoop
+					} else {
+						isGameOver = true
+						break PlayGameLoop
 					}
 				}
 				if rowPins[2].Get() {
 					if initColor[5] == RED {
+						break PlayGameLoop
+					} else {
+						isGameOver = true
 						break PlayGameLoop
 					}
 				}
@@ -153,15 +173,24 @@ func main() {
 				if rowPins[0].Get() {
 					if initColor[6] == RED {
 						break PlayGameLoop
+					} else {
+						isGameOver = true
+						break PlayGameLoop
 					}
 				}
 				if rowPins[1].Get() {
 					if initColor[7] == RED {
 						break PlayGameLoop
+					} else {
+						isGameOver = true
+						break PlayGameLoop
 					}
 				}
 				if rowPins[2].Get() {
 					if initColor[8] == RED {
+						break PlayGameLoop
+					} else {
+						isGameOver = true
 						break PlayGameLoop
 					}
 				}
@@ -175,15 +204,24 @@ func main() {
 				if rowPins[0].Get() {
 					if initColor[9] == RED {
 						break PlayGameLoop
+					} else {
+						isGameOver = true
+						break PlayGameLoop
 					}
 				}
 				if rowPins[1].Get() {
 					if initColor[10] == RED {
 						break PlayGameLoop
+					} else {
+						isGameOver = true
+						break PlayGameLoop
 					}
 				}
 				if rowPins[2].Get() {
 					if initColor[11] == RED {
+						break PlayGameLoop
+					} else {
+						isGameOver = true
 						break PlayGameLoop
 					}
 				}
@@ -196,6 +234,13 @@ func main() {
 				time.Sleep(gameSpeed)
 			}
 		}
+		if isGameOver {
+			display.ClearDisplay()
+			tinyfont.WriteLine(&display, &freemono.Bold9pt7b, 5, 45, "GameOver...", displayColor)
+			display.Display()
+			break
+		}
+
 		gameLevel++
 		if gameLevel == 11 {
 			display.ClearDisplay()
