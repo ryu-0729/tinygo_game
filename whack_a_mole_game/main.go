@@ -163,32 +163,29 @@ func main() {
 		time.Sleep(1 * time.Millisecond)
 
 		if rowPins[0].Get() {
-			var colorCode0 uint32 = WHITE
 			if colors[0] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[0] = colorCode0
+			colors[0] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[1].Get() {
-			var colorCode1 uint32 = WHITE
 			if colors[1] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[1] = colorCode1
+			colors[1] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[2].Get() {
-			var colorCode2 uint32 = WHITE
 			if colors[2] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[2] = colorCode2
+			colors[2] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
@@ -201,32 +198,29 @@ func main() {
 		time.Sleep(1 * time.Millisecond)
 
 		if rowPins[0].Get() {
-			var colorCode3 uint32 = WHITE
 			if colors[3] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[3] = colorCode3
+			colors[3] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[1].Get() {
-			var colorCode4 uint32 = WHITE
 			if colors[4] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[4] = colorCode4
+			colors[4] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[2].Get() {
-			var colorCode5 uint32 = WHITE
 			if colors[5] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[5] = colorCode5
+			colors[5] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
@@ -239,32 +233,29 @@ func main() {
 		time.Sleep(1 * time.Millisecond)
 
 		if rowPins[0].Get() {
-			var colorCode6 uint32 = WHITE
 			if colors[6] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[6] = colorCode6
+			colors[6] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[1].Get() {
-			var colorCode7 uint32 = WHITE
 			if colors[7] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[7] = colorCode7
+			colors[7] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[2].Get() {
-			var colorCode8 uint32 = WHITE
 			if colors[8] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[8] = colorCode8
+			colors[8] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
@@ -277,32 +268,29 @@ func main() {
 		time.Sleep(1 * time.Millisecond)
 
 		if rowPins[0].Get() {
-			var colorCode9 uint32 = WHITE
 			if colors[9] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[9] = colorCode9
+			colors[9] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[1].Get() {
-			var colorCode10 uint32 = WHITE
 			if colors[10] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[10] = colorCode10
+			colors[10] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
 		if rowPins[2].Get() {
-			var colorCode11 uint32 = WHITE
 			if colors[11] == WHITE {
 				displayCharacter(display, white, "GameOver...", 5, 45)
 				break
 			}
-			colors[11] = colorCode11
+			colors[11] = WHITE
 			ws.WriteRaw(colors)
 			time.Sleep(100 * time.Millisecond)
 		}
